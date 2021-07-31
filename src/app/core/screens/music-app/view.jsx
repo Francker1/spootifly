@@ -1,6 +1,9 @@
 import { Container, Col, Row } from 'react-bootstrap';
+import Artists from '../../components/artists';
 import NavBar from '../../components/navbar';
 import Sidebar from '../../components/sidebar';
+
+import { StyledContent } from './styles';
 
 const MusicPage = () => {
   return (
@@ -10,9 +13,11 @@ const MusicPage = () => {
           <Sidebar />
         </Col>
 
-        <Col md={10}>
+        <Col md={10} style={{ background: 'var(--black-color)' }}>
           <NavBar />
-          <div>music!</div>
+          <StyledContent>
+            <Artists />
+          </StyledContent>
         </Col>
       </Row>
     </Container>

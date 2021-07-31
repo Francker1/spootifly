@@ -29,6 +29,8 @@ export const SidebarOptions = styled.div`
     .active {
       background: rgba(255, 255, 255, 0.1);
       border-left: 3px solid var(--accent-color);
+      color: var(--accent-color);
+      font-weight: 700;
     }
 
     li {
