@@ -1,5 +1,7 @@
-const CoverView = () => {
-  return <div>cover page</div>;
+import Cover from '../../components/cover';
+
+const CoverPage = () => {
+  return <Cover />;
 };
 
-export default CoverView;
+export default CoverPage;
