@@ -1,17 +1,26 @@
-import { StyledSidebar } from './styles';
+import { StyledSidebar, SidebarHeader, SidebarOptions } from './styles';
+import { NavLink } from 'react-router-dom';
 
 const SidebarView = () => {
   return (
     <StyledSidebar>
-      <div>
-        <h2>spootify</h2>
-      </div>
-      <div>
+      <SidebarHeader>
+        <NavLink to="/">spootifly</NavLink>
+      </SidebarHeader>
+      <SidebarOptions>
         <ul>
-          <li>Inicio</li>
-          <li>Buscar</li>
+          <li>
+            <NavLink to="/app" activeClassName="active">
+              <span>inicio</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/search" activeClassName="active">
+              <span>buscar</span>
+            </NavLink>
+          </li>
         </ul>
-      </div>
+      </SidebarOptions>
     </StyledSidebar>
   );
 };
