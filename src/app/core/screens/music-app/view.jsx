@@ -6,7 +6,7 @@ const MusicPage = () => {
   return (
     <Container fluid>
       <Row>
-        <Col md={2}>
+        <Col md={2} style={{ padding: '0' }}>
           <Sidebar />
         </Col>
 

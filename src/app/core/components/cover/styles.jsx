@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import { Container, Col } from 'react-bootstrap';
 
 import TestImg from '../../shared/img/funkofone-cover.jpg';
-import { Colors } from '../../../styles/theme';
-
-const { mainColor } = Colors;
 
 export const MainContainer = styled(Container)`
   height: calc(100vh);
@@ -17,7 +14,7 @@ export const StyledColMsg = styled(Col)`
   text-align: center;
 
   h1 {
-    color: ${mainColor};
+    color: var(--main-color);
   }
 `;
 
