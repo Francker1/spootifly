@@ -1,7 +1,7 @@
-import CoverView from './view';
+import CoverPage from './view';
 
-const Cover = () => {
-  return <CoverView />;
+const CoverScreen = () => {
+  return <CoverPage />;
 };
 
-export default Cover;
+export default CoverScreen;

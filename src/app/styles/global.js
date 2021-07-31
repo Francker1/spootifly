@@ -16,6 +16,11 @@ code {
     monospace;
 }
 
+a{
+  &:hover{
+    text-decoration: none;
+  }
+}
 `;
 
 export default GlobalStyle;
