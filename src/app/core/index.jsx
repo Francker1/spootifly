@@ -1,9 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from '../../logo.svg';
+import '../../App.css';
 
-function App() {
+const Core = () => {
   return (
-    <div className="App">
+    <div className="App" id="core">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -20,6 +20,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
-export default App;
+export default Core;
