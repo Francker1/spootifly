@@ -1,3 +1,7 @@
+import { useState, useEffect } from 'react';
+
+import { getTokenFromUrl } from '../../config/spotify';
+
 import { Container, Row } from 'react-bootstrap';
 import Albums from '../../components/albums';
 import Artists from '../../components/artists';
@@ -7,6 +11,18 @@ import Sidebar from '../../components/sidebar';
 import { StyledContent, StyledSidebar, StyledMainContent } from './styles';
 
 const MusicPage = () => {
+  const [token, setToken] = useState();
+
+  useEffect(() => {
+    const hash = getTokenFromUrl();
+    const _token = hash.access_token;
+
+    if (_token) {
+      setToken(_token);
+      window.location.hash = '';
+    }
+  }, [token]);
+
   return (
     <Container fluid>
       <Row>
