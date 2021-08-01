@@ -1,9 +1,14 @@
+import { useMusicContextValue } from '../../helpers/AppContext';
+
 import { Row, Col, CardDeck } from 'react-bootstrap';
 import AlbumCard from '../common/album-card/view';
 
 import { SectionTitle, SectionContainer } from '../../../styles/theme';
 
 const AlbumView = () => {
+  const [{ playlists }] = useMusicContextValue();
+
+  console.log('discover', playlists);
   return (
     <SectionContainer>
       <SectionTitle>
