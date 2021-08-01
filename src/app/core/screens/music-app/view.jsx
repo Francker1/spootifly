@@ -1,4 +1,4 @@
-import { Container, Col, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import Albums from '../../components/albums';
 import Artists from '../../components/artists';
 import NavBar from '../../components/navbar';
