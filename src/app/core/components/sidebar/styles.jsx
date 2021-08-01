@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledSidebar = styled.div`
   color: var(--white-color);
   background: var(--black-color-mid);
-  min-height: calc(100vh);
+  min-height: 100%;
   padding: 15px 0px 15px 15px;
   border-right: 1px solid var(--gray-color-mid);
 

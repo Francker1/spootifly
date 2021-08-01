@@ -1,32 +1,32 @@
 import { Row, Col, CardDeck } from 'react-bootstrap';
-import ArtistCard from '../common/artists-card/view';
+import AlbumCard from '../common/album-card/view';
 
 import { SectionTitle, SectionContainer } from '../../../styles/theme';
 
-const ArtistsView = () => {
+const AlbumView = () => {
   return (
     <SectionContainer>
       <SectionTitle>
-        <h4>Artistas del momento</h4>
+        <h4>Álbumes más escuchados</h4>
       </SectionTitle>
 
       <Row>
         <div>
           <CardDeck>
             <Col sm={4} lg={3} className="mb-5">
-              <ArtistCard />
+              <AlbumCard />
             </Col>
 
             <Col sm={4} lg={3} className="mb-5">
-              <ArtistCard />
+              <AlbumCard />
             </Col>
 
             <Col sm={4} lg={3} className="mb-5">
-              <ArtistCard />
+              <AlbumCard />
             </Col>
 
             <Col sm={4} lg={3} className="mb-5">
-              <ArtistCard />
+              <AlbumCard />
             </Col>
           </CardDeck>
         </div>
@@ -35,4 +35,4 @@ const ArtistsView = () => {
   );
 };
 
-export default ArtistsView;
+export default AlbumView;

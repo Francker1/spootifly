@@ -1,24 +1,26 @@
 import { Container, Col, Row } from 'react-bootstrap';
+import Albums from '../../components/albums';
 import Artists from '../../components/artists';
 import NavBar from '../../components/navbar';
 import Sidebar from '../../components/sidebar';
 
-import { StyledContent } from './styles';
+import { StyledContent, StyledSidebar, StyledMainContent } from './styles';
 
 const MusicPage = () => {
   return (
     <Container fluid>
       <Row>
-        <Col md={2} style={{ padding: '0' }}>
+        <StyledSidebar md={2}>
           <Sidebar />
-        </Col>
+        </StyledSidebar>
 
-        <Col md={10} style={{ background: 'var(--black-color)' }}>
+        <StyledMainContent md={{ span: 10, offset: 2 }}>
           <NavBar />
           <StyledContent>
             <Artists />
+            <Albums />
           </StyledContent>
-        </Col>
+        </StyledMainContent>
       </Row>
     </Container>
   );

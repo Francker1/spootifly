@@ -22,3 +22,12 @@ export const StyledLink = styled(Link)`
     background-color: var(--accent-color-dark);
   }
 `;
+
+export const SectionContainer = styled.div`
+  margin-bottom: 32px;
+`;
+
+export const SectionTitle = styled.div`
+  margin-bottom: 22px;
+  color: var(--white-color);
+`;
