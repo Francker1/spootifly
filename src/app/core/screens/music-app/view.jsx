@@ -56,12 +56,7 @@ const MusicPage = () => {
         </StyledSidebar>
 
         <StyledMainContent md={{ span: 10, offset: 2 }}>
-          {token ? (
-            <p style={{ color: 'var(--white-color)' }}>Hola! {user?.display_name}</p>
-          ) : (
-            <a href="/">login</a>
-          )}
-
+          <NavBar />
           <StyledContent>
             <Artists />
             <Albums />
