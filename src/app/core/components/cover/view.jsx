@@ -3,7 +3,6 @@ import { Row, Col } from 'react-bootstrap';
 import { loginUrl } from '../../config/spotify';
 
 import { MainContainer, StyledColMsg, StyledColImg } from './styles';
-import { StyledLink } from '../../../styles/theme';
 
 const CoverView = () => {
   return (

@@ -31,7 +31,8 @@ const MusicPage = () => {
         </StyledSidebar>
 
         <StyledMainContent md={{ span: 10, offset: 2 }}>
-          <NavBar />
+          {token ? <p style={{ color: 'var(--white-color)' }}>Hola!</p> : <a href="/">login</a>}
+
           <StyledContent>
             <Artists />
             <Albums />
