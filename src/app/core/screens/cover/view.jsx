@@ -1,4 +1,4 @@
-import Cover from '../../components/cover';
+import Cover from '../../components/login';
 
 const CoverPage = () => {
   return <Cover />;
