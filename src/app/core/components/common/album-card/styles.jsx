@@ -3,29 +3,29 @@ import { Card } from 'react-bootstrap';
 
 const { Body } = Card;
 
-export const StyledArtistCard = styled(Card)`
-  background: transparent;
+export const StyledAlbumCard = styled(Card)`
+  background: var(--black-color-mid);
+
   figure {
-    border-radius: 50%;
-    overflow: hidden;
-    height: 170px;
+    height: 165px;
 
     img {
       height: inherit;
+      object-fit: cover;
+      object-position: center;
     }
   }
 `;
 
 export const StyledBody = styled(Body)`
-  padding: 0;
-  text-align: center;
   color: var(--white-color);
+  padding: 0 15px;
 
-  .artist_name {
+  .album_name {
     font-size: 16px;
   }
 
-  .artist_info {
+  .album_info {
     color: var(--gray-color-light);
     font-size: 14px;
   }

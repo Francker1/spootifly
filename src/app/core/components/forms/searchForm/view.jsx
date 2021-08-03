@@ -31,7 +31,7 @@ const AddValue = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    spotify.searchArtists(inputValue).then((res) => {
+    spotify.searchArtists(inputValue, { limit: 10 }).then((res) => {
       setResultsArtists(
         res.artists.items.map((artist) => {
           return {
@@ -46,7 +46,7 @@ const AddValue = () => {
       );
     });
 
-    spotify.searchAlbums(inputValue, { limit: 15 }).then((res) => {
+    spotify.searchAlbums(inputValue, { limit: 10 }).then((res) => {
       setResultsAlbums(
         res.albums.items.map((album) => {
           return {

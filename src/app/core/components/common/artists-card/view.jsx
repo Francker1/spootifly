@@ -1,7 +1,7 @@
 import { Card, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-import { StyledArtistCard } from './styles';
+import { StyledArtistCard, StyledBody } from './styles';
 
 const ArtistCard = ({ artist }) => {
   const { name, id, followers, images } = { ...artist };
@@ -13,10 +13,12 @@ const ArtistCard = ({ artist }) => {
         <figure>
           <Card.Img variant="top" src={artistImg} />
         </figure>
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <Card.Text>{followers} fans</Card.Text>
-        </Card.Body>
+        <StyledBody>
+          <Card.Title className="artist_name">{name}</Card.Title>
+          <div className="artist_info">
+            <span>{followers} fans</span>
+          </div>
+        </StyledBody>
       </StyledArtistCard>
     </Col>
   );

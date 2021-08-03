@@ -1,11 +1,9 @@
-import { Row, Col, CardDeck } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import AlbumCard from '../common/album-card/view';
 
 import { SectionTitle, SectionContainer } from '../../../styles/theme';
 
 const AlbumView = ({ album }) => {
-  //console.log(album);
-
   return (
     <SectionContainer>
       <SectionTitle>

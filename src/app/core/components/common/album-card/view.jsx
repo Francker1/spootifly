@@ -1,23 +1,27 @@
 import { Col, Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
+import { StyledAlbumCard, StyledBody } from './styles';
+
 const AlbumCard = ({ name, release_date, images, artists }) => {
   const albumImg = images[1]?.url;
 
   return (
     <Col sm={4} lg={3} className="mb-5">
-      <Card>
-        <Card.Img variant="top" src={albumImg} />
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <div>
+      <StyledAlbumCard>
+        <figure>
+          <Card.Img variant="top" src={albumImg} />
+        </figure>
+        <StyledBody>
+          <Card.Title className="album_name">{name}</Card.Title>
+          <div className="album_info">
             {artists.map((artist) => (
               <span> {artist?.name}.</span>
             ))}
-            <p>{release_date}</p>
+            <p>Release: {release_date}</p>
           </div>
-        </Card.Body>
-      </Card>
+        </StyledBody>
+      </StyledAlbumCard>
     </Col>
   );
 };
