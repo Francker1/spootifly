@@ -3,7 +3,9 @@ import AlbumCard from '../common/album-card/view';
 
 import { SectionTitle, SectionContainer } from '../../../styles/theme';
 
-const AlbumView = () => {
+const AlbumView = ({ album }) => {
+  //console.log(album);
+
   return (
     <SectionContainer>
       <SectionTitle>
@@ -11,25 +13,7 @@ const AlbumView = () => {
       </SectionTitle>
 
       <Row>
-        <div>
-          <CardDeck>
-            <Col sm={4} lg={3} className="mb-5">
-              <AlbumCard />
-            </Col>
-
-            <Col sm={4} lg={3} className="mb-5">
-              <AlbumCard />
-            </Col>
-
-            <Col sm={4} lg={3} className="mb-5">
-              <AlbumCard />
-            </Col>
-
-            <Col sm={4} lg={3} className="mb-5">
-              <AlbumCard />
-            </Col>
-          </CardDeck>
-        </div>
+        <div>{album && album.map((item) => <p key={item?.id}>{item?.name}</p>)}</div>
       </Row>
     </SectionContainer>
   );

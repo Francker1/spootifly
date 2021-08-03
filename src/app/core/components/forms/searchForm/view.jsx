@@ -3,6 +3,7 @@ import { Row } from 'react-bootstrap';
 import { useMusicContextValue } from '../../../helpers/AppContext';
 import SpotifyWebApi from 'spotify-web-api-js';
 import ArtistCard from '../../common/artists-card/view';
+import Albums from '../../../components/albums';
 
 const spotify = new SpotifyWebApi();
 
@@ -12,7 +13,7 @@ const AddValue = () => {
   const [inputValue, setInputValue] = useState('');
   const [resultsArtists, setResultsArtists] = useState([]);
   const [resultsAlbums, setResultsAlbums] = useState([]);
-
+  console.log(resultsAlbums);
   useEffect(() => {
     if (!token) return;
     spotify.setAccessToken(token);
@@ -46,7 +47,18 @@ const AddValue = () => {
     });
 
     spotify.searchAlbums(inputValue).then((res) => {
-      console.log(res.albums.items);
+      setResultsAlbums(
+        res.albums.items.map((album) => {
+          return {
+            name: album.name,
+            id: album.id,
+            images: album.images,
+            artists: album.artists,
+            uri: album.uri,
+            href: album.href,
+          };
+        }),
+      );
     });
   };
 
@@ -68,6 +80,11 @@ const AddValue = () => {
           <ArtistCard artist={result} key={result.id} />
         ))}
       </Row>
+      {resultsAlbums && (
+        <Row>
+          <Albums albums={resultsAlbums} />
+        </Row>
+      )}
     </>
   );
 };
