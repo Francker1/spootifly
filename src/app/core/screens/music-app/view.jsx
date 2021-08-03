@@ -33,18 +33,6 @@ const MusicPage = () => {
           user,
         });
       });
-      // spotify.getUserPlaylists().then((playlists) => {
-      //   dispatch({
-      //     type: 'SET_PLAYLISTS',
-      //     playlists,
-      //   });
-      // });
-      // spotify.getPlaylist('37i9dQZF1E34Ucml4HHx1w').then((playlist) => {
-      //   dispatch({
-      //     type: 'SET_DISCOVER_WEEKLY',
-      //     discover_weekly: playlist,
-      //   });
-      // });
     }
   });
 

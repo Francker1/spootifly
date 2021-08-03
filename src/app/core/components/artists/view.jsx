@@ -1,13 +1,17 @@
 import { Row, Col, CardDeck } from 'react-bootstrap';
 import ArtistCard from '../common/artists-card/view';
 
+import { useMusicContextValue } from '../../helpers/AppContext';
+
 import { SectionTitle, SectionContainer } from '../../../styles/theme';
 
 const ArtistsView = () => {
+  const [{ token }] = useMusicContextValue();
   return (
     <SectionContainer>
       <SectionTitle>
         <h4>Artistas del momento</h4>
+        <p>{token}</p>
       </SectionTitle>
 
       <Row>
