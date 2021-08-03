@@ -7,9 +7,7 @@ import Sidebar from '../../components/sidebar';
 import { StyledContent, StyledSidebar, StyledMainContent } from '../../../styles/theme';
 import SearchForm from '../../components/forms/searchForm';
 
-const ScreePage = ({ defaultCategories = [] }) => {
-  const [categories, setCategories] = useState(defaultCategories);
-
+const ScreePage = () => {
   return (
     <Container fluid>
       <Row>
@@ -20,7 +18,7 @@ const ScreePage = ({ defaultCategories = [] }) => {
         <StyledMainContent md={{ span: 10, offset: 2 }}>
           <NavBar />
           <StyledContent>
-            <SearchForm setCategories={setCategories} />
+            <SearchForm />
           </StyledContent>
         </StyledMainContent>
       </Row>

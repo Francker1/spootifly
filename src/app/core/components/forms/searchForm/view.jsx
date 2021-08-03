@@ -1,19 +1,44 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
+import { useMusicContextValue } from '../../../helpers/AppContext';
+import SpotifyWebApi from 'spotify-web-api-js';
+import ArtistCard from '../../common/artists-card/view';
 
-const AddValue = ({ setCategories }) => {
+const spotify = new SpotifyWebApi();
+
+const AddValue = () => {
+  const [{ token }] = useMusicContextValue();
+
   const [inputValue, setInputValue] = useState('');
+  const [results, setResults] = useState([]);
+  console.log(results);
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
+  useEffect(() => {
+    if (!token) return;
+    spotify.setAccessToken(token);
+  }, [token]);
+
+  useEffect(() => {
+    if (!inputValue) {
+      setResults([]);
+      return;
+    }
+    if (!token) return;
+  }, [token]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (inputValue.trim().length > 2) {
-      setCategories(() => [inputValue]);
-    }
+    spotify.searchArtists(inputValue).then((res) => {
+      setResults(
+        res.artists.items.map((artist) => {
+          return {
+            name: artist.name,
+            id: artist.id,
+            images: artist.images,
+          };
+        }),
+      );
+    });
   };
 
   return (
@@ -22,18 +47,17 @@ const AddValue = ({ setCategories }) => {
         <input
           type="text"
           value={inputValue}
-          onChange={handleInputChange}
+          onChange={(e) => setInputValue(e.target.value)}
           placeholder="Search..."
         />
         <button type="submit">Search</button>
       </form>
-      <p>{inputValue}</p>
+
+      {results.map((result) => (
+        <p key={result.id}>{result.name}</p>
+      ))}
     </>
   );
-};
-
-AddValue.propTypes = {
-  setCategories: PropTypes.func.isRequired,
 };
 
 export default AddValue;
