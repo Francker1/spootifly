@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 
 import NavBar from '../../components/navbar';

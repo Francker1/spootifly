@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Row } from 'react-bootstrap';
 import { useMusicContextValue } from '../../../helpers/AppContext';
 import SpotifyWebApi from 'spotify-web-api-js';
 import ArtistCard from '../../common/artists-card/view';
@@ -10,7 +11,6 @@ const AddValue = () => {
 
   const [inputValue, setInputValue] = useState('');
   const [results, setResults] = useState([]);
-  console.log(results);
 
   useEffect(() => {
     if (!token) return;
@@ -23,7 +23,7 @@ const AddValue = () => {
       return;
     }
     if (!token) return;
-  }, [token]);
+  }, [inputValue, token]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,6 +35,9 @@ const AddValue = () => {
             name: artist.name,
             id: artist.id,
             images: artist.images,
+            uri: artist.uri,
+            followers: artist.followers.total,
+            href: artist.href,
           };
         }),
       );
@@ -53,9 +56,12 @@ const AddValue = () => {
         <button type="submit">Search</button>
       </form>
 
-      {results.map((result) => (
-        <p key={result.id}>{result.name}</p>
-      ))}
+      <div>Results for "{inputValue}"</div>
+      <Row>
+        {results.map((result) => (
+          <ArtistCard artist={result} key={result.id} />
+        ))}
+      </Row>
     </>
   );
 };
