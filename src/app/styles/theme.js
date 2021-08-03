@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Col } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
 
@@ -30,4 +31,21 @@ export const SectionContainer = styled.div`
 export const SectionTitle = styled.div`
   margin-bottom: 22px;
   color: var(--white-color);
+`;
+
+export const StyledContent = styled.div`
+  padding: 32px;
+`;
+
+export const StyledSidebar = styled(Col)`
+  padding: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 100%;
+`;
+
+export const StyledMainContent = styled(Col)`
+  background: var(--black-color);
 `;

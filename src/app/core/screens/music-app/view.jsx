@@ -10,7 +10,7 @@ import Artists from '../../components/artists';
 import NavBar from '../../components/navbar';
 import Sidebar from '../../components/sidebar';
 
-import { StyledContent, StyledSidebar, StyledMainContent } from './styles';
+import { StyledContent, StyledSidebar, StyledMainContent } from '../../../styles/theme';
 
 const spotify = new SpotifyWebApi();
 
