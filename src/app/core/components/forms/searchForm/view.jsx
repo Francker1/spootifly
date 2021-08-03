@@ -13,7 +13,7 @@ const AddValue = () => {
   const [inputValue, setInputValue] = useState('');
   const [resultsArtists, setResultsArtists] = useState([]);
   const [resultsAlbums, setResultsAlbums] = useState([]);
-  console.log(resultsAlbums);
+
   useEffect(() => {
     if (!token) return;
     spotify.setAccessToken(token);
@@ -46,7 +46,7 @@ const AddValue = () => {
       );
     });
 
-    spotify.searchAlbums(inputValue).then((res) => {
+    spotify.searchAlbums(inputValue, { limit: 15 }).then((res) => {
       setResultsAlbums(
         res.albums.items.map((album) => {
           return {
@@ -56,6 +56,7 @@ const AddValue = () => {
             artists: album.artists,
             uri: album.uri,
             href: album.href,
+            release_date: album.release_date,
           };
         }),
       );

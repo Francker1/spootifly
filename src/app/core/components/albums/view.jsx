@@ -12,9 +12,7 @@ const AlbumView = ({ album }) => {
         <h4>Álbumes más escuchados</h4>
       </SectionTitle>
 
-      <Row>
-        <div>{album && album.map((item) => <p key={item?.id}>{item?.name}</p>)}</div>
-      </Row>
+      <Row>{album && album.map((item) => <AlbumCard key={item?.id} {...item} />)}</Row>
     </SectionContainer>
   );
 };
