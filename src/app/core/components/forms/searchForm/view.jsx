@@ -10,7 +10,8 @@ const AddValue = () => {
   const [{ token }] = useMusicContextValue();
 
   const [inputValue, setInputValue] = useState('');
-  const [results, setResults] = useState([]);
+  const [resultsArtists, setResultsArtists] = useState([]);
+  const [resultsAlbums, setResultsAlbums] = useState([]);
 
   useEffect(() => {
     if (!token) return;
@@ -19,7 +20,8 @@ const AddValue = () => {
 
   useEffect(() => {
     if (!inputValue) {
-      setResults([]);
+      setResultsArtists([]);
+      setResultsAlbums([]);
       return;
     }
     if (!token) return;
@@ -29,7 +31,7 @@ const AddValue = () => {
     e.preventDefault();
 
     spotify.searchArtists(inputValue).then((res) => {
-      setResults(
+      setResultsArtists(
         res.artists.items.map((artist) => {
           return {
             name: artist.name,
@@ -41,6 +43,10 @@ const AddValue = () => {
           };
         }),
       );
+    });
+
+    spotify.searchAlbums(inputValue).then((res) => {
+      console.log(res.albums.items);
     });
   };
 
@@ -58,7 +64,7 @@ const AddValue = () => {
 
       <div>Results for "{inputValue}"</div>
       <Row>
-        {results.map((result) => (
+        {resultsArtists.map((result) => (
           <ArtistCard artist={result} key={result.id} />
         ))}
       </Row>
