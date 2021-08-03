@@ -1,11 +1,15 @@
+import { useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 
 import NavBar from '../../components/navbar';
 import Sidebar from '../../components/sidebar';
 
 import { StyledContent, StyledSidebar, StyledMainContent } from '../../../styles/theme';
+import SearchForm from '../../components/forms/searchForm';
 
-const ScreePage = () => {
+const ScreePage = ({ defaultCategories = [] }) => {
+  const [categories, setCategories] = useState(defaultCategories);
+
   return (
     <Container fluid>
       <Row>
@@ -16,7 +20,7 @@ const ScreePage = () => {
         <StyledMainContent md={{ span: 10, offset: 2 }}>
           <NavBar />
           <StyledContent>
-            <p>Resultados!!!</p>
+            <SearchForm setCategories={setCategories} />
           </StyledContent>
         </StyledMainContent>
       </Row>
