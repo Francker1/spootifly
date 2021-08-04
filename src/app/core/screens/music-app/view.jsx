@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
 
-import { getTokenFromUrl } from '../../config/spotify';
+import { getTokenFromUrl } from '../../helpers/main';
 import { useMusicContextValue } from '../../helpers/AppContext';
 
 import { Container, Row } from 'react-bootstrap';

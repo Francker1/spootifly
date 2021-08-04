@@ -1,11 +1,11 @@
 import { StyledSidebar, SidebarHeader, SidebarOptions } from './styles';
 import { NavLink } from 'react-router-dom';
 
-const SidebarView = () => {
+const SidebarView = ({ token }) => {
   return (
     <StyledSidebar>
       <SidebarHeader>
-        <NavLink to="/">spootifly</NavLink>
+        <h2 to="/">spootifly</h2>
       </SidebarHeader>
       <SidebarOptions>
         <ul>
@@ -20,6 +20,7 @@ const SidebarView = () => {
             </NavLink>
           </li>
         </ul>
+        {token && <NavLink to="/">Cerrar sesión</NavLink>}
       </SidebarOptions>
     </StyledSidebar>
   );
