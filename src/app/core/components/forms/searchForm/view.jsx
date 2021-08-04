@@ -50,19 +50,7 @@ const AddValue = () => {
     });
 
     spotify.searchAlbums(inputValue, { limit: 10 }).then((res) => {
-      setResultsAlbums(
-        res.albums.items.map((album) => {
-          return {
-            name: album.name,
-            id: album.id,
-            images: album.images,
-            artists: album.artists,
-            uri: album.uri,
-            href: album.href,
-            release_date: album.release_date,
-          };
-        }),
-      );
+      setResultsAlbums(res.albums.items);
     });
 
     spotify.searchTracks(inputValue, { limit: 10 }).then((res) => {
@@ -88,12 +76,12 @@ const AddValue = () => {
           <ArtistCard artist={result} key={result.id} />
         ))}
       </Row>
-      {resultsAlbums && (
+      {!!resultsAlbums.length && (
         <Row>
           <Albums albums={resultsAlbums} />
         </Row>
       )}
-      {resultsTracks && (
+      {!!resultsTracks.length && (
         <Row>
           <TracksList tracks={resultsTracks} />
         </Row>

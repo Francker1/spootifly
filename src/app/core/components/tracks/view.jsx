@@ -3,18 +3,18 @@ import { TableContainer, StyledTable } from './styles';
 import { millisToMinutesAndSeconds } from '../../helpers/main';
 
 const TracksView = ({ tracksRender }) => {
-  const tracksToMap = [...tracksRender];
-
-  const data = tracksToMap.map((track) => {
-    return {
-      name: track.name,
-      id: track.id,
-      artists: track.artists[0],
-      duration_ms: track.duration_ms,
-      preview_url: track.preview_url,
-      album: track.album.name,
-    };
-  });
+  const data =
+    tracksRender &&
+    tracksRender.map((track) => {
+      return {
+        name: track.name,
+        id: track.id,
+        artists: track.artists[0],
+        duration_ms: track.duration_ms,
+        preview_url: track.preview_url,
+        album: track.album.name,
+      };
+    });
 
   return (
     <TableContainer>
@@ -28,7 +28,7 @@ const TracksView = ({ tracksRender }) => {
             <th>Artist</th>
             <th>Album</th>
             <th>D.</th>
-            <th>#</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
