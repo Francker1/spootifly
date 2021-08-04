@@ -57,7 +57,7 @@ const AddValue = () => {
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Search..."
+            placeholder="Search artist, song, track..."
           />
           <button type="submit">Search</button>
         </form>
