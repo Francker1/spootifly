@@ -50,9 +50,8 @@ const MusicPage = () => {
 
         <StyledMainContent md={{ span: 10, offset: 2 }}>
           <NavBar />
-          <p style={{ color: 'white' }}>{token}</p>
           <StyledContent>
-            {loadReleases ? <p>Loading new releases...</p> : <Albums albums={releases.items} />}
+            {loadReleases ? <p>Loading new releases...</p> : <Albums albums={releases?.items} />}
             {loadArtists ? <p>Loading top artists...</p> : <Artists artists={artists} />}
           </StyledContent>
         </StyledMainContent>

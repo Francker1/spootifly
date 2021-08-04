@@ -13,7 +13,7 @@ const api = (token) => {
   return {
     getNewReleases: async () => {
       try {
-        const url = `${API_URL_SPOTIFY}/browse/new-releases?limit=8`;
+        const url = `${API_URL_SPOTIFY}/browse/new-releases?limit=12`;
 
         const resp = await fetch(url, requestOptions);
         const { albums } = await resp.json();
