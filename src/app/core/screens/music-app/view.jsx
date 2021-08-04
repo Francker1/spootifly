@@ -17,7 +17,10 @@ const spotify = new SpotifyWebApi();
 
 const MusicPage = () => {
   const [{ token }, dispatch] = useMusicContextValue();
-  const { data, loading } = useFetchData(token);
+  const [stateReleases, stateTopArtists] = useFetchData(token);
+
+  const { data: releases, loading: loadReleases } = stateReleases;
+  const { data: artists, loading: loadArtists } = stateTopArtists;
 
   useEffect(() => {
     const hash = getTokenFromUrl();
@@ -47,12 +50,10 @@ const MusicPage = () => {
 
         <StyledMainContent md={{ span: 10, offset: 2 }}>
           <NavBar />
+          <p style={{ color: 'white' }}>{token}</p>
           <StyledContent>
-            <Artists />
-            <div>
-              {loading && <p>Loading new releases...</p>}
-              <Albums albums={data.items} />
-            </div>
+            {loadReleases ? <p>Loading new releases...</p> : <Albums albums={releases.items} />}
+            {loadArtists ? <p>Loading top artists...</p> : <Artists artists={artists} />}
           </StyledContent>
         </StyledMainContent>
       </Row>

@@ -6,6 +6,10 @@ export const useFetchData = (token) => {
     data: [],
     loading: true,
   });
+  const [stateTopArtists, setStateTopArtists] = useState({
+    data: [],
+    loading: true,
+  });
 
   useEffect(() => {
     if (!token) return;
@@ -18,7 +22,16 @@ export const useFetchData = (token) => {
           loading: false,
         });
       });
+
+    api(token)
+      .getTopArtists()
+      .then((items) => {
+        setStateTopArtists({
+          data: items,
+          loading: false,
+        });
+      });
   }, [token]);
 
-  return stateReleases;
+  return [stateReleases, stateTopArtists];
 };
