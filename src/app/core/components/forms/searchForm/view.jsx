@@ -4,6 +4,7 @@ import { useMusicContextValue } from '../../../helpers/AppContext';
 import SpotifyWebApi from 'spotify-web-api-js';
 import ArtistCard from '../../common/artists-card/view';
 import Albums from '../../../components/albums';
+import TracksList from '../../../components/tracks';
 
 const spotify = new SpotifyWebApi();
 
@@ -13,6 +14,7 @@ const AddValue = () => {
   const [inputValue, setInputValue] = useState('');
   const [resultsArtists, setResultsArtists] = useState([]);
   const [resultsAlbums, setResultsAlbums] = useState([]);
+  const [resultsTracks, setResultsTracks] = useState([]);
 
   useEffect(() => {
     if (!token) return;
@@ -23,6 +25,7 @@ const AddValue = () => {
     if (!inputValue) {
       setResultsArtists([]);
       setResultsAlbums([]);
+      setResultsTracks([]);
       return;
     }
     if (!token) return;
@@ -61,6 +64,10 @@ const AddValue = () => {
         }),
       );
     });
+
+    spotify.searchTracks(inputValue, { limit: 10 }).then((res) => {
+      setResultsTracks(res.tracks.items);
+    });
   };
 
   return (
@@ -84,6 +91,11 @@ const AddValue = () => {
       {resultsAlbums && (
         <Row>
           <Albums albums={resultsAlbums} />
+        </Row>
+      )}
+      {resultsTracks && (
+        <Row>
+          <TracksList tracks={resultsTracks} />
         </Row>
       )}
     </>

@@ -7,8 +7,8 @@ export const StyledArtistCard = styled(Card)`
   background: transparent;
   figure {
     border-radius: 50%;
-    overflow: hidden;
     height: 170px;
+    overflow: hidden;
 
     img {
       height: inherit;
@@ -17,9 +17,9 @@ export const StyledArtistCard = styled(Card)`
 `;
 
 export const StyledBody = styled(Body)`
+  color: var(--white-color);
   padding: 0;
   text-align: center;
-  color: var(--white-color);
 
   .artist_name {
     font-size: 16px;
