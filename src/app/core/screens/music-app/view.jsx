@@ -11,11 +11,13 @@ import NavBar from '../../components/navbar';
 import Sidebar from '../../components/sidebar';
 
 import { StyledContent, StyledSidebar, StyledMainContent } from '../../../styles/theme';
+import { useFetchData } from '../../hooks/useFetch';
 
 const spotify = new SpotifyWebApi();
 
 const MusicPage = () => {
-  const [, dispatch] = useMusicContextValue();
+  const [{ token }, dispatch] = useMusicContextValue();
+  const { data, loading } = useFetchData(token);
 
   useEffect(() => {
     const hash = getTokenFromUrl();
@@ -47,7 +49,10 @@ const MusicPage = () => {
           <NavBar />
           <StyledContent>
             <Artists />
-            <Albums />
+            <div>
+              {loading && <p>Loading new releases...</p>}
+              <Albums albums={data.items} />
+            </div>
           </StyledContent>
         </StyledMainContent>
       </Row>
