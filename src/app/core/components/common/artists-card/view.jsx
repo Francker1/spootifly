@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 
 import { StyledArtistCard, StyledBody } from './styles';
 
-const ArtistCard = ({ artist }) => {
-  const { name, id, followers, images } = { ...artist };
+const ArtistCard = ({ name, followers, images }) => {
   const artistImg = images[1]?.url;
 
   return (
-    <Col sm={4} lg={2} className="mb-5" key={id}>
+    <Col sm={4} lg={2} className="mb-5">
       <StyledArtistCard>
         <figure>
           <Card.Img variant="top" src={artistImg} />
@@ -25,7 +24,9 @@ const ArtistCard = ({ artist }) => {
 };
 
 ArtistCard.propTypes = {
-  artist: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  followers: PropTypes.number,
+  images: PropTypes.array,
 };
 
 export default ArtistCard;

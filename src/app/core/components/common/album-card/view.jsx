@@ -15,8 +15,8 @@ const AlbumCard = ({ name, release_date, images, artists }) => {
         <StyledBody>
           <Card.Title className="album_name">{name}</Card.Title>
           <div className="album_info">
-            {artists.map((artist) => (
-              <span> {artist?.name}.</span>
+            {artists.map((artist, index) => (
+              <span key={index}> {artist?.name}.</span>
             ))}
             <p>Release: {release_date}</p>
           </div>

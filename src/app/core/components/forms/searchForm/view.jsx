@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Row } from 'react-bootstrap';
-import { useMusicContextValue } from '../../../helpers/AppContext';
 import SpotifyWebApi from 'spotify-web-api-js';
-import ArtistCard from '../../common/artists-card/view';
+import { useMusicContextValue } from '../../../helpers/AppContext';
+
+import Artists from '../../../components/artists';
 import Albums from '../../../components/albums';
 import TracksList from '../../../components/tracks';
+
+import { StyledFormContainer, StyledInfoSearched } from './styles';
 
 const spotify = new SpotifyWebApi();
 
@@ -35,18 +37,7 @@ const AddValue = () => {
     e.preventDefault();
 
     spotify.searchArtists(inputValue, { limit: 10 }).then((res) => {
-      setResultsArtists(
-        res.artists.items.map((artist) => {
-          return {
-            name: artist.name,
-            id: artist.id,
-            images: artist.images,
-            uri: artist.uri,
-            followers: artist.followers.total,
-            href: artist.href,
-          };
-        }),
-      );
+      setResultsArtists(res.artists.items);
     });
 
     spotify.searchAlbums(inputValue, { limit: 10 }).then((res) => {
@@ -60,32 +51,25 @@ const AddValue = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Search..."
-        />
-        <button type="submit">Search</button>
-      </form>
+      <StyledFormContainer>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Search..."
+          />
+          <button type="submit">Search</button>
+        </form>
+      </StyledFormContainer>
 
-      <div>Results for "{inputValue}"</div>
-      <Row>
-        {resultsArtists.map((result) => (
-          <ArtistCard artist={result} key={result.id} />
-        ))}
-      </Row>
-      {!!resultsAlbums.length && (
-        <Row>
-          <Albums albums={resultsAlbums} />
-        </Row>
-      )}
-      {!!resultsTracks.length && (
-        <Row>
-          <TracksList tracks={resultsTracks} />
-        </Row>
-      )}
+      <StyledInfoSearched>
+        <span>Results for "{inputValue}"</span>
+      </StyledInfoSearched>
+
+      {!!resultsArtists.length && <Artists artists={resultsArtists} />}
+      {!!resultsAlbums.length && <Albums albums={resultsAlbums} />}
+      {!!resultsTracks.length && <TracksList tracks={resultsTracks} />}
     </>
   );
 };

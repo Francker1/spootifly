@@ -1,28 +1,28 @@
-import { Row, CardDeck } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import ArtistCard from '../common/artists-card/view';
 
 import { SectionTitle, SectionContainer } from '../../../styles/theme';
 
-const ArtistsView = () => {
+const ArtistsView = ({ artistsRender }) => {
+  const data =
+    artistsRender &&
+    artistsRender.map((artist) => {
+      return {
+        name: artist.name,
+        id: artist.id,
+        images: artist.images,
+        uri: artist.uri,
+        followers: artist.followers.total,
+        href: artist.href,
+      };
+    });
   return (
     <SectionContainer>
       <SectionTitle>
         <h4>Artistas del momento</h4>
       </SectionTitle>
 
-      <Row>
-        <div>
-          <CardDeck>
-            {/* <ArtistCard />
-            <ArtistCard />
-            <ArtistCard />
-            <ArtistCard />
-            <ArtistCard />
-            <ArtistCard />
-            <ArtistCard /> */}
-          </CardDeck>
-        </div>
-      </Row>
+      <Row>{data && data.map((item) => <ArtistCard key={item?.id} {...item} />)}</Row>
     </SectionContainer>
   );
 };
