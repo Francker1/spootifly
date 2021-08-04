@@ -1,7 +1,7 @@
 import AlbumView from './view';
 
-const Albums = () => {
-  return <AlbumView />;
+const Albums = ({ albums }) => {
+  return <AlbumView albumsRender={albums} />;
 };
 
 export default Albums;

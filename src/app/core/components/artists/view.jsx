@@ -1,40 +1,28 @@
-import { Row, Col, CardDeck } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import ArtistCard from '../common/artists-card/view';
-
-import { useMusicContextValue } from '../../helpers/AppContext';
 
 import { SectionTitle, SectionContainer } from '../../../styles/theme';
 
-const ArtistsView = () => {
-  const [{ token }] = useMusicContextValue();
+const ArtistsView = ({ artistsRender }) => {
+  const data =
+    artistsRender &&
+    artistsRender.map((artist) => {
+      return {
+        name: artist.name,
+        id: artist.id,
+        images: artist.images,
+        uri: artist.uri,
+        followers: artist.followers.total,
+        href: artist.href,
+      };
+    });
   return (
     <SectionContainer>
       <SectionTitle>
         <h4>Artistas del momento</h4>
-        <p>{token}</p>
       </SectionTitle>
 
-      <Row>
-        <div>
-          <CardDeck>
-            <Col sm={4} lg={3} className="mb-5">
-              <ArtistCard />
-            </Col>
-
-            <Col sm={4} lg={3} className="mb-5">
-              <ArtistCard />
-            </Col>
-
-            <Col sm={4} lg={3} className="mb-5">
-              <ArtistCard />
-            </Col>
-
-            <Col sm={4} lg={3} className="mb-5">
-              <ArtistCard />
-            </Col>
-          </CardDeck>
-        </div>
-      </Row>
+      <Row>{data && data.map((item) => <ArtistCard key={item?.id} {...item} />)}</Row>
     </SectionContainer>
   );
 };

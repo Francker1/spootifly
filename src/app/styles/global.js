@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
   --accent-color-dark: #CC3A57;
   --main-color: #0E3150;
   --gray-color-mid: #32323D;
+  --gray-color-light: #8D8787;
 }
 
 body {
