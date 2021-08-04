@@ -1,3 +1,5 @@
+import { types } from '../actions/actionTypes';
+
 export const initialState = {
   user: null,
   token: null,
@@ -5,12 +7,12 @@ export const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'SET_TOKEN':
+    case types.SET_TOKEN:
       return {
         ...state,
         token: action.token,
       };
-    case 'SET_USER':
+    case types.SET_USER:
       return {
         ...state,
         user: action.user,
