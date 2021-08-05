@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests in AlbumView component should render the component correctly 1`] = `
+<Col
+  className="mb-5"
+  lg={3}
+  sm={4}
+>
+  <Styled(Card)>
+    <figure>
+      <CardImg
+        variant="top"
+      />
+    </figure>
+    <Styled(CardBody)>
+      <CardTitle
+        className="album_name"
+      >
+        Un album
+      </CardTitle>
+      <div
+        className="album_info"
+      >
+        <span
+          key="0"
+        >
+           
+          Bruno Mars
+          .
+        </span>
+        <p>
+          Release: 
+          2021-07-30
+        </p>
+      </div>
+    </Styled(CardBody)>
+  </Styled(Card)>
+</Col>
+`;
