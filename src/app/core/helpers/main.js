@@ -14,3 +14,5 @@ export const millisToMinutesAndSeconds = (millis) => {
   let seconds = ((millis % 60000) / 1000).toFixed(0);
   return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 };
+
+export const arrayJoin = (array, symbol) => array.join(symbol);

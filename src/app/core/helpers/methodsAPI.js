@@ -11,9 +11,9 @@ const api = (token) => {
   };
 
   return {
-    getNewReleases: async () => {
+    getNewReleases: async (limit) => {
       try {
-        const url = `${API_URL_SPOTIFY}/browse/new-releases?limit=12`;
+        const url = `${API_URL_SPOTIFY}/browse/new-releases?limit=${limit}`;
 
         const resp = await fetch(url, requestOptions);
         const { albums } = await resp.json();
@@ -22,9 +22,9 @@ const api = (token) => {
         console.log(e);
       }
     },
-    getTopArtists: async () => {
+    getTopArtists: async (idsArtists) => {
       try {
-        const url = `${API_URL_SPOTIFY}/artists?ids=4q3ewBCX7sLwd24euuV69X%2C3TVXtAsR1Inumwj472S9r4%2C64KEffDW9EtZ1y2vBYgq8T%2C6qqNVTkY8uBg9cP3Jd7DAH%2C246dkjvS1zLTtiykXe5h60%2C6M2wZ9GZgrQXHCFfjv46we`;
+        const url = `${API_URL_SPOTIFY}/artists?ids=${idsArtists}`;
         const resp = await fetch(url, requestOptions);
         const { artists } = await resp.json();
         return artists;

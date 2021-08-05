@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../helpers/methodsAPI';
 
-export const useFetchData = (token) => {
+export const useFetchData = (token, idsArtists = '', limit = '') => {
   const [stateReleases, setStateReleases] = useState({
     data: [],
     loading: true,
@@ -15,7 +15,7 @@ export const useFetchData = (token) => {
     if (!token) return;
 
     api(token)
-      .getNewReleases()
+      .getNewReleases(limit)
       .then((items) => {
         setStateReleases({
           data: items,
@@ -24,14 +24,14 @@ export const useFetchData = (token) => {
       });
 
     api(token)
-      .getTopArtists()
+      .getTopArtists(idsArtists)
       .then((items) => {
         setStateTopArtists({
           data: items,
           loading: false,
         });
       });
-  }, [token]);
+  }, [token, idsArtists, limit]);
 
   return [stateReleases, stateTopArtists];
 };
