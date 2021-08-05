@@ -2,6 +2,7 @@ import { Row, Col } from 'react-bootstrap';
 
 import { loginUrl } from '../../config/spotify';
 
+import { StyledHref } from '../../../styles/theme';
 import { MainContainer, StyledColMsg, StyledColImg } from './styles';
 
 const CoverView = () => {
@@ -13,7 +14,7 @@ const CoverView = () => {
             <h1 className="mb-4">Bienvenido a Spootifly</h1>
             <p>Más de 73 millones de canciones, podcast y playlists</p>
             <div className="col col-lg-6 | mx-auto mt-5">
-              <a href={loginUrl}>LOGIN WITH SPOTIFY</a>
+              <StyledHref href={loginUrl}>Iniciar sesión con Spotify</StyledHref>
             </div>
           </Col>
         </StyledColMsg>

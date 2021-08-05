@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
+import { Container, Row } from 'react-bootstrap';
 
+import { useFetchData } from '../../hooks/useFetch';
 import { getTokenFromUrl } from '../../helpers/main';
 import { useMusicContextValue } from '../../helpers/AppContext';
-
-import { Container, Row } from 'react-bootstrap';
 import Albums from '../../components/albums';
 import Artists from '../../components/artists';
 import NavBar from '../../components/navbar';
 import Sidebar from '../../components/sidebar';
+import { types } from '../../domain/actions/actionTypes';
 
 import { StyledContent, StyledSidebar, StyledMainContent } from '../../../styles/theme';
-import { useFetchData } from '../../hooks/useFetch';
 
 const spotify = new SpotifyWebApi();
 
@@ -28,13 +28,13 @@ const MusicPage = () => {
     const _token = hash.access_token;
     if (_token) {
       dispatch({
-        type: 'SET_TOKEN',
+        type: types.SET_TOKEN,
         token: _token,
       });
       spotify.setAccessToken(_token);
       spotify.getMe().then((user) => {
         dispatch({
-          type: 'SET_USER',
+          type: types.SET_USER,
           user,
         });
       });
@@ -51,8 +51,16 @@ const MusicPage = () => {
         <StyledMainContent md={{ span: 10, offset: 2 }}>
           <NavBar />
           <StyledContent>
-            {loadReleases ? <p>Loading new releases...</p> : <Albums albums={releases?.items} />}
-            {loadArtists ? <p>Loading top artists...</p> : <Artists artists={artists} />}
+            {loadReleases ? (
+              <p>Loading new releases...</p>
+            ) : (
+              <Albums albums={releases?.items} title={'Álbumes más escuchados'} />
+            )}
+            {loadArtists ? (
+              <p>Loading top artists...</p>
+            ) : (
+              <Artists artists={artists} title={'Artistas Top 2020'} />
+            )}
           </StyledContent>
         </StyledMainContent>
       </Row>

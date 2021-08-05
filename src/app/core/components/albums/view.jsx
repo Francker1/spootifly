@@ -3,7 +3,7 @@ import AlbumCard from '../common/album-card/view';
 
 import { SectionTitle, SectionContainer } from '../../../styles/theme';
 
-const AlbumView = ({ albumsRender }) => {
+const AlbumView = ({ albumsRender, title = 'Álbumes' }) => {
   const data =
     albumsRender &&
     albumsRender.map((album) => {
@@ -21,7 +21,7 @@ const AlbumView = ({ albumsRender }) => {
   return (
     <SectionContainer>
       <SectionTitle>
-        <h4>Álbumes más escuchados</h4>
+        <h4>{title}</h4>
       </SectionTitle>
 
       <Row>{data && data.map((item) => <AlbumCard key={item?.id} {...item} />)}</Row>

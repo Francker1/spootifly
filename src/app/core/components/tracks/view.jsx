@@ -19,14 +19,14 @@ const TracksView = ({ tracksRender }) => {
   return (
     <TableContainer>
       <div>
-        <h4>Songs</h4>
+        <h4>Canciones</h4>
       </div>
       <StyledTable>
         <thead>
           <tr>
-            <th>Song</th>
-            <th>Artist</th>
-            <th>Album</th>
+            <th>Nombre</th>
+            <th>Artista</th>
+            <th>Álbum</th>
             <th>D.</th>
             <th></th>
           </tr>
