@@ -3,7 +3,7 @@ import ArtistCard from '../common/artists-card/view';
 
 import { SectionTitle, SectionContainer } from '../../../styles/theme';
 
-const ArtistsView = ({ artistsRender }) => {
+const ArtistsView = ({ artistsRender, title = 'Artistas' }) => {
   const data =
     artistsRender &&
     artistsRender.map((artist) => {
@@ -19,7 +19,7 @@ const ArtistsView = ({ artistsRender }) => {
   return (
     <SectionContainer>
       <SectionTitle>
-        <h4>Artistas del momento</h4>
+        <h4>{title}</h4>
       </SectionTitle>
 
       <Row>{data && data.map((item) => <ArtistCard key={item?.id} {...item} />)}</Row>

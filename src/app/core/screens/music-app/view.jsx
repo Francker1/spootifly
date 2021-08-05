@@ -51,8 +51,16 @@ const MusicPage = () => {
         <StyledMainContent md={{ span: 10, offset: 2 }}>
           <NavBar />
           <StyledContent>
-            {loadReleases ? <p>Loading new releases...</p> : <Albums albums={releases?.items} />}
-            {loadArtists ? <p>Loading top artists...</p> : <Artists artists={artists} />}
+            {loadReleases ? (
+              <p>Loading new releases...</p>
+            ) : (
+              <Albums albums={releases?.items} title={'Álbumes más escuchados'} />
+            )}
+            {loadArtists ? (
+              <p>Loading top artists...</p>
+            ) : (
+              <Artists artists={artists} title={'Artistas Top 2020'} />
+            )}
           </StyledContent>
         </StyledMainContent>
       </Row>

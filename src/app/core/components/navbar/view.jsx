@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar } from 'react-bootstrap';
 
+import { StyledHref } from '../../../styles/theme';
 import { StyledUser } from './styles';
 
 const NavbarView = ({ user }) => {
@@ -11,9 +12,9 @@ const NavbarView = ({ user }) => {
           <Nav className="ml-auto">
             <StyledUser>
               {user ? (
-                <p style={{ color: 'white' }}>Howdy, {user?.display_name}</p>
+                <p style={{ color: 'white' }}>Hola, {user?.display_name}</p>
               ) : (
-                <a href="/">Login</a>
+                <StyledHref href="/">Iniciar sesión</StyledHref>
               )}
             </StyledUser>
           </Nav>

@@ -3,7 +3,7 @@ import { Col } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
 
-const SharedBtnStyles = css`
+export const SharedBtnStyles = css`
   align-items: center;
   background-color: var(--accent-color);
   border-radius: 40px;
@@ -49,4 +49,13 @@ export const StyledSidebar = styled(Col)`
 export const StyledMainContent = styled(Col)`
   background: var(--black-color);
   min-height: 100vh;
+`;
+
+export const StyledHref = styled.a`
+  ${SharedBtnStyles}
+
+  &:hover {
+    color: var(--white-color);
+    background-color: var(--accent-color-dark);
+  }
 `;
