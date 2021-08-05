@@ -66,3 +66,8 @@ With this application you will be able to see the most popular artists of this y
 This application is connected to the **Spotify API**, this means that you must be logged into Spotify to use it, to do this you must go to the home and click on the button "Iniciar sesión Spotify" and you will be redirected to Spotify authentication, once your credentials are included, you will be redirected to "/app" to see a first list of the most listened albums and artists, you can also see your username used from the API information and "logout button". 
 
 In the search section, you will be able to search by artist, album or songs, and you will be shown three lists, one for each result and a list of 20 songs that you can listen to.
+
+**To avoid problems with your privacy policy, like devices control or tracks, and permissions is not set correctly, you can login with this non-permanent data:*
+
+user: franco.clemente1@gmail.com
+pwd: qIaL3@Gm63bj
