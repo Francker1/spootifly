@@ -67,7 +67,4 @@ This application is connected to the **Spotify API**, this means that you must b
 
 In the search section, you will be able to search by artist, album or songs, and you will be shown three lists, one for each result and a list of 20 songs that you can listen to.
 
-**To avoid problems with your privacy policy, like devices control or tracks, and permissions is not set correctly, you can login with this non-permanent data:*
-
-user: franco.clemente1@gmail.com
-pwd: qIaL3@Gm63bj
+To works, you must change url spotify, creating a new project in your account dashboard on Spotify for devs.
